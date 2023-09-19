@@ -44,3 +44,21 @@ console.log(os.homedir());// C:\Users\andre
 
 // setInterval(funcion, intervalo, argumento)
 // es com setTimeout y un bucle, el intervalo es en milisegundo tmbn
+
+
+const curso = require("./curso.json")
+console.log(curso);
+/* {
+  nombre: 'marco',
+  apellido: 'rossel',
+  age: 30,
+  nacionalidad: 'Chileno'
+} */
+console.log(typeof(curso), "typeof curso"); // object
+
+let cursoString = JSON.stringify(curso)
+console.log(cursoString);
+console.log(typeof(cursoString), "typeof cursoString");// string
+
+cursoString = JSON.parse(cursoString)
+console.log(typeof(cursoString), 'typeof parse');// object
