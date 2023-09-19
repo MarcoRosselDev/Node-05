@@ -32,7 +32,7 @@ fs.rename('./fs/main.html', './fs/index.html', (err)=>{
 //Eliminar un archivo 
 fs.unlink('./fs/index.html', (err)=>{
     if(err){
-        throw err; // ---> "lanzar" 
+        throw err; // ---> "lanzar"
     }
     console.log("Archivo eliminado.");
 }) 
