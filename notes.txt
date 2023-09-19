@@ -1,0 +1,11 @@
+npm install express
+npm install express@4.2.53--> version expesifica
+npm uninstall express---> remover paquete
+
+-------------------------new project---------------------------
+clonamos un proyecto y en la terminal ejecutamos
+npm install
+esto instalara todos los paquetes y dependencias espesificadas
+en package.json
+de esta forma podemos trabajar en equipo.
+---------------------------------------------------------------
