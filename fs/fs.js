@@ -1,15 +1,14 @@
 const fs = require('fs')
-//console.log(fs);
+/* Leer un archivo
 
-/* fs.readFile('./fs/index.html', 'utf-8', (err, data)=>{
+fs.readFile('./fs/index.html', 'utf-8', (err, data)=>{
     if (err) {
         console.log(err);
     } else{
         console.log(data);
     }
 })
- */
-/* <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,11 +18,21 @@ const fs = require('fs')
 <body>
     <h1>Hola mundo</h1>
 </body>
-</html> */
+</html>
+*/
 
+/* cambiar el nombre de un archivo
 fs.rename('./fs/main.html', './fs/index.html', (err)=>{
     if (err) {
         console.log(err);
     }
     console.log('nombre cambiado exitosamente');
-})
+})  */
+
+//Eliminar un archivo 
+fs.unlink('./fs/index.html', (err)=>{
+    if(err){
+        throw err; // ---> "lanzar" 
+    }
+    console.log("Archivo eliminado.");
+}) 
