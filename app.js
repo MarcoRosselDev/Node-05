@@ -21,12 +21,22 @@ app.get('/cursos/matematicas', (req, res) =>{
 
 app.get('/cursos/programacion/:lenguaje', (req, res) =>{
   const lenguaje = req.params.lenguaje;
-  const resultado = cursos.programacion.filter(e => e.curso === lenguaje)
+  const resultado = cursos.programacion.filter(arr => arr.curso === lenguaje)
 
   if (resultado.length === 0) {
-    res.status(404).send(`No se encontraron cursos de ${param}`)
+    res.status(404).send(`No se encontraron cursos de ${lenguaje}`)
   }
   // prosesar si escribimos asdfaskdfja en :lenguaje
+  res.status(200).send(JSON.stringify(resultado))
+})
+
+app.get('/cursos/matematicas/:materia', (req, res) => {
+  const materia = req.params.materia
+  const resultado = cursos.mates.filter(arr => arr.curso === materia)
+
+  if (resultado === 0) {
+    res.status(404).send(`No se encontraron cursos de ${materia}`)
+  }
   res.status(200).send(JSON.stringify(resultado))
 })
 
