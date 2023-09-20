@@ -4,6 +4,38 @@
     "curso":"algebra",
     "vistas":123521,
     "likes":1235
+    },
+    {
+    "curso":"logaritmos",
+    "vistas":123521,
+    "likes":1235
+    },
+    {
+    "curso":"claculo",
+    "vistas":123521,
+    "likes":1235
+    }
+  ],
+  "programacion":[
+    {
+    "curso":"javascript",
+    "vistas":123521,
+    "likes":1235
+    },
+    {
+    "curso":"python",
+    "vistas":123521,
+    "likes":1235
+    },
+    {
+    "curso":"java",
+    "vistas":123521,
+    "likes":1235
+    },
+    {
+    "curso":"c++",
+    "vistas":123521,
+    "likes":1235
     }
   ]
 }
