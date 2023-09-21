@@ -1,47 +1,12 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000
-const cursos = require('./cursos.json')
+const utils = require('./utils');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+utils.sayHi('marco')
 
-app.get('/cursos', (req, res)=>{
-  res.status(200).send(JSON.stringify(cursos))
-})
+console.log(utils.add(5, 3));
+console.log(utils.subtract(5, 3));
 
-app.get('/cursos/programacion', (req, res) =>{
-  res.status(200).send(JSON.stringify(cursos.programacion))
-})
+/*------output--------
 
-app.get('/cursos/matematicas', (req, res) =>{
-  res.status(200).send(JSON.stringify(cursos.mates))
-})
-
-app.get('/cursos/programacion/:lenguaje', (req, res) =>{
-  const lenguaje = req.params.lenguaje;
-  const resultado = cursos.programacion.filter(arr => arr.curso === lenguaje)
-
-  if (resultado.length === 0) {
-    res.status(404).send(`No se encontraron cursos de ${lenguaje}`)
-  }
-  // prosesar si escribimos asdfaskdfja en :lenguaje
-  res.status(200).send(JSON.stringify(resultado))
-})
-
-app.get('/cursos/matematicas/:materia', (req, res) => {
-  const materia = req.params.materia
-  const resultado = cursos.mates.filter(arr => arr.curso === materia)
-
-  if (resultado === 0) {
-    res.status(404).send(`No se encontraron cursos de ${materia}`)
-  }
-  res.status(200).send(JSON.stringify(resultado))
-})
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+Hello there marco
+8
+2 */
