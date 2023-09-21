@@ -1,72 +1,3 @@
-/* output ---> no sabemos cual leera primero por que synchronous 
-text two to read synchronous
-text one to read */
-
-const {readFile} = require('fs');
-const { resolve } = require('path');
-// console.log(readFile);
-
-/* const reader = async (path)=>{
-  await readFile(path, 'utf-8',(err, data)=>{
-    if (err) {
-      console.log(err);
-      return console.log(`error: ${err}`);
-    } else {
-      console.log(data);
-      return data
-    }
-  })
-} */
-
-const promesa = new Promise((res, rej)=>{
-  path = './text1.txt'
-  if (true) {
-    res(
-      readFile(path, 'utf-8',(err, data)=>{
-        if (err) {
-          console.log(err);
-          return console.log(`error: ${err}`);
-        } else {
-          console.log(data);
-          return data
-        }
-      })
-    )
-  }
-  rej("no se puedo ejecutar")
-})
-
-const first = './text1.txt'
-const second = './text2.txt'
-/* reader(first)
-reader(second) */
-promesa.then().catch()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* const http = require('http');
 
 const hostname = '127.0.0.1';
@@ -94,3 +25,21 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 }); */
+
+const {readFile, read} = require('fs')
+
+const reader = (path) =>{
+  return new Promise((res, rej)=>{
+    readFile(path, 'utf-8', (err, data)=>{
+      if (err) {
+        rej(console.log(err))
+      }
+      res(console.log(data))
+    })
+  })
+}
+
+const one = './text1.txt';
+const two = './text2.txt';
+
+reader(one).then(e => reader(two)).then().catch()
