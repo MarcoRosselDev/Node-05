@@ -4,6 +4,7 @@ const {readFileSync} = require('fs')
 const todoListHTML = readFileSync('./todo_list/index.html')
 const favicon = readFileSync('./favicon.ico')
 const todoListCSS = readFileSync('./todo_list/style.css')
+const todoListJS = readFileSync('./todo_list/app.js')
 
 const server = http.createServer((req, res)=>{
   const url = req.url
@@ -20,6 +21,10 @@ const server = http.createServer((req, res)=>{
   } else if (url === '/style.css') {
     res.writeHead(200,{'content-type': 'text/css'})
     res.write(todoListCSS)
+    res.end()
+  } else if (url === '/app.js') {
+    res.writeHead(200, {'content-type': 'application/javascript'})
+    res.write(todoListJS)
     res.end()
   }
 
