@@ -1,4 +1,26 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     background-color: black;
     color: white;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    text-align: center;
+}
+
+.div-list{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 5px;
+    margin-top: 200px;
+    border: 1px solid red;
+    padding: 20px;
+    border-radius: 5px;
 }
