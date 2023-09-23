@@ -2,8 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
-    color: white;
     font-family: sans-serif;
 }
 
@@ -13,14 +11,17 @@ body{
     align-items: center;
     height: auto;
     text-align: center;
+    background-color: rgb(245, 245, 245);
+    color: rgb(56, 55, 55);
 }
 
 .div-list{
     display: flex;
     flex-flow: column wrap;
+    background-color: rgb(255, 255, 255);
     gap: 5px;
     margin-top: 200px;
-    border: 1px solid red;
+    border: 1px solid rgba(126, 126, 126, 0.31);
     padding: 20px;
     border-radius: 5px;
 }
