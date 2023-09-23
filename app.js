@@ -8,7 +8,6 @@ const todoListJS = readFileSync('./todo_list/app.js')
 
 const server = http.createServer((req, res)=>{
   const url = req.url
-  console.log(url);
 
   if (url === '/') {
     res.writeHead(200,{'content-type': 'text/html'})
@@ -26,6 +25,11 @@ const server = http.createServer((req, res)=>{
     res.writeHead(200, {'content-type': 'application/javascript'})
     res.write(todoListJS)
     res.end()
+  } else {
+    res.writeHead(404, {'content-type': 'text/html'})
+    res.write(`<p>no se encontro la paguina con url:${url}<p/>
+    <p>porfavor <a href="http://localhost:5000/">click</a> para regresar a la paguina principal<p/>
+    `)
   }
 
 })
