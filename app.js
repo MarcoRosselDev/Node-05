@@ -2,6 +2,7 @@ const http = require('http');
 const {readFileSync} = require('fs')
 
 const todoListHTML = readFileSync('./todo_list/index.html')
+const favicon = readFileSync('./favicon.ico')
 const todoListCSS = readFileSync('./todo_list/style.css')
 
 const server = http.createServer((req, res)=>{
@@ -11,6 +12,10 @@ const server = http.createServer((req, res)=>{
   if (url === '/') {
     res.writeHead(200,{'content-type': 'text/html'})
     res.write(todoListHTML)
+    res.end()
+  } else if (url === '/favicon.ico') {
+    res.writeHead(200,{'content-type': 'image/x-icon'})
+    res.write(favicon)
     res.end()
   } else if (url === '/style.css') {
     res.writeHead(200,{'content-type': 'text/css'})
