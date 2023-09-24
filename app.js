@@ -22,10 +22,30 @@ app.get('/users', (req, res)=>{
 app.get('/users/:userID', (req, res)=>{
   const {userID} = req.params; // <----- es type string
   const singleUser = people.find(user => user.id === Number(userID));
-  if (singleUser == undefined) {
+  if (singleUser == undefined) {  //-----> (!singleUser) = undefined ---> son lo mismo
     res.status(404).send(`El usuario:${userID}, no se encontro`)
   }
   res.status(200).json(singleUser)
+})
+
+// queris----search&limit---> filter, slice
+app.get('/v1/search', (req, res)=>{
+  console.log(req.query);
+  // la documentacion de la api nos dice que querys soporta
+  // para eso desestructuramos la query y preguntamos si esta presente en la peticion
+  // en este caso preguntamos por un nombre que tenga x letra pasada en el query:?name=a-->filter
+  // es segundo sera el limite de resultados retornados--->lim=2--->slice
+  const {name, lim} = req.query;
+  // como cortaremos y filtraremos los datos, realizamos una insanciacion de los datos
+  let queryData = [...products]
+  console.log(queryData);
+  if (name) {
+    queryData = queryData.filter(product => product.name.startsWith(name))
+  }
+  if (lim) {
+    queryData = queryData.slice(0, lim)
+  }
+  res.status(200).send(queryData);
 })
 
 
