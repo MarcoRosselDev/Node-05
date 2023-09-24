@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 5000
 const path = require('path')
-const {products} = require('./data')
+const {products, people} = require('./data')
 
 app.use(express.static('./public')) // realmente poderozo, por que con node tendriamos que realizar 3000 respuestas si tubiesemos 3000 ptericiones de imagenes y recursos
 
@@ -15,12 +15,17 @@ app.get('/', (req, res) => {
 
 // send a json object
 app.get('/users', (req, res)=>{
-  res.json(products)// api res--->json data send
+  res.json(people)// api res--->json data send
 })
 
 // get un item de una json object
 app.get('/users/:userID', (req, res)=>{
-  console.log(req.params);
+  const {userID} = req.params; // <----- es type string
+  const singleUser = people.find(user => user.id === Number(userID));
+  if (singleUser == undefined) {
+    res.status(404).send(`El usuario:${userID}, no se encontro`)
+  }
+  res.status(200).json(singleUser)
 })
 
 
