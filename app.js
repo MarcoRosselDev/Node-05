@@ -38,12 +38,16 @@ app.get('/v1/search', (req, res)=>{
   const {name, lim} = req.query;
   // como cortaremos y filtraremos los datos, realizamos una insanciacion de los datos
   let queryData = [...products]
-  console.log(queryData);
   if (name) {
     queryData = queryData.filter(product => product.name.startsWith(name))
   }
   if (lim) {
-    queryData = queryData.slice(0, lim)
+    queryData = queryData.slice(0, Number(lim))
+  }
+  if (queryData.length < 1) {
+    return res.status(200).send(`<h1>no se encontro la nada que comiece con ${name}<h1/>`)
+    // ojo --> si no aplico return salta error por que no podemos aplicar dos .send() method
+    // se soluciona aplicando return en el condicional if y no continua con res.send de fuera.
   }
   res.status(200).send(queryData);
 })
