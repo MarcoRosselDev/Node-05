@@ -1,10 +1,7 @@
 const express = require('express');
 const app = express();
-const {readFileSync} = require('fs');
 
-const login = readFileSync('./public/login.html', 'utf-8');
-
-app.use(express.static('./public'));
+app.use(express.static('./public'));// nombrar index.html al archivo principal o no leera ningun archivo
 
 app.get('/', (req, res)=>{
   res.status(200).send(login);

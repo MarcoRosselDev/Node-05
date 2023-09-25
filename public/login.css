@@ -5,6 +5,17 @@
 }
 
 body{
-    background-color: rgb(68, 94, 94);
-    color: blue;
+    background-color: rgb(59, 64, 64);
+    color: rgb(205, 205, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+main{
+    border: 1px solid pink;
+    padding: 40px;
+    border-radius: 5px;
+    text-align: center;
 }
