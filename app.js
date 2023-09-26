@@ -3,8 +3,11 @@ const app = express();
 const {people} = require('./data.js')
 
 app.use(express.static('./public'));// nombrar index.html al archivo principal o no leera ningun archivo
-app.use(express.urlencoded({extended: false}));// nesecario para codificar el body de el request
+app.use(express.urlencoded({ extended: false }));// nesecario para codificar el body de el request
 // ahora podemos ver req.body---> {clave:valor}<---from Payload From Data
+
+// parse json
+app.use(express.json())// lo mismo, si no lo aplico no parsea el body enviado en el post
 
 app.get('/', (req, res)=>{
   res.status(200).send(login);
@@ -13,7 +16,7 @@ app.get('/', (req, res)=>{
 app.post('/login', (req, res)=>{
   const {user} = req.body;
   if (user) {
-    return res.status(200).send(`welcome ${user}.`);
+  return res.status(200).send(`welcome ${user}.`);
   }
   res.status(404).send('por favor ingresa un usuario')
 })
@@ -23,13 +26,13 @@ app.get('/api/people', (req, res)=>{
 })
 
 app.post('/api/people', (req, res) =>{
-  const {name} = req.body;
+  const { nombre } = req.body;
   console.log(req.body);
-  console.log(name);
-  if (!name) {
-    return res.status(404).json({"success": false, "response": "Por favor ingrese un nombre."})
+  console.log(nombre);
+  if (nombre) {
+    return res.status(201).json({"success": true, "response": "Usuario creado."})
   }
-  res.status(201).json({"success": true, "response": "Usuario creado."})
+  res.status(404).json({"success": false, "response": "Por favor ingrese un nombre."})
 })
 
 app.listen(5000, ()=>{
