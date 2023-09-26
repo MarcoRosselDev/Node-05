@@ -10,8 +10,11 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/login', (req, res)=>{
-  console.log(req.body);
-  res.status(200).send('LOGIN SUCCESSFUL')
+  const {user} = req.body;
+  if (user) {
+    return res.status(200).send(`welcome ${user}.`);
+  }
+  res.status(404).send('por favor ingresa un usuario')
 })
 
 app.listen(5000, ()=>{
