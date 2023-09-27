@@ -1,6 +1,8 @@
 const express = require("express");
+const tasks = require("./routes/tasks.js");
 
 const app = express();
+app.use("/api/v1", tasks);
 
 app.get("/api", (req, res) => {
   res.status(200).send("Hola mundirijillo!");
