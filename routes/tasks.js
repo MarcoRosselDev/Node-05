@@ -8,6 +8,7 @@ const {
 } = require("../controllers/controllers.js");
 
 //router.get("/", getTask);
-router.route("/").get(getTask).post(createTask).put(putTask).delete(deleteTask);
+router.route("/").get(getTask).post(createTask);
+router.route("/:id").put(putTask).delete(deleteTask);
 
 module.exports = router;

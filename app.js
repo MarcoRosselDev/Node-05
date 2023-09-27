@@ -1,10 +1,11 @@
 const express = require("express");
 const tasks = require("./routes/tasks.js");
 const app = express();
-
 //app.use(express.urlencoded({ extended: false }));
 //app.use(express.json());
-app.use("/api/v1", tasks);
+app.use(express.static("./public"));
+
+app.use("/api/v1/tasks", tasks);
 
 app.get("/api", (req, res) => {
   res.status(200).json({ data: "mundirijillo!" });
