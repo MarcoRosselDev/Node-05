@@ -1,12 +1,22 @@
 const path = require("path");
+const Task = require("../schemas/tasks.js");
 
-const getTask = (req, res) => {
+const getTask = async (req, res) => {
   console.log(req.url);
   res.status(200).sendFile(path.resolve(__dirname, "../public/index.html"));
+  // const smallTask = new Task({ title: "first task", content: "random text" });
+  // await smallTask.save();
 };
 
-const createTask = (req, res) => {
-  res.status(200).json({ data: "create task" });
+const createTask = async (req, res) => {
+  //res.status(200).json({ data: "create task" });
+  const { title, content } = req.body;
+  const small = new Task({
+    title: `${title}`,
+    content: `${content}`,
+  });
+  await small.save();
+  res.status(200).json({ small });
 };
 
 const putTask = (req, res) => {
