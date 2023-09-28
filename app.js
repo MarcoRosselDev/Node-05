@@ -1,10 +1,19 @@
+require("dotenv").config();
+const password = process.env.PASSWORD;
+const username = process.env.USERNAME_DB;
+const cluster = process.env.CLUSTER;
+
 const express = require("express");
 const tasks = require("./routes/tasks.js");
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
 //app.use(express.json());
-app.use(express.static("./public"));
 
+const url = `mongodb+srv://${username}:${password}@${cluster}.vis1qwi.mongodb.net/?retryWrites=true&w=majority`;
+
+console.log(url);
+
+app.use(express.static("./public"));
 app.use("/api/v1/tasks", tasks);
 
 app.get("/api", (req, res) => {
