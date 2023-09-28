@@ -1,8 +1,7 @@
-require("./db/connect.js");
-
 const express = require("express");
 const tasks = require("./routes/tasks.js");
 const app = express();
+const connectionDB = require("./db/connect.js");
 //app.use(express.urlencoded({ extended: false }));
 //app.use(express.json());
 
@@ -19,6 +18,11 @@ app.get("/api", (req, res) => {
 // app.patch('/api/v1/tasks/:id')-----> notece la diferencia con put
 // app.delete('/api/v1/tasks/:id')
 
-app.listen(5000, () => {
-  console.log("Escuchando en el puerto 5000");
-});
+try {
+  connectionDB();
+  app.listen(5000, () => {
+    console.log("Escuchando en el puerto 5000");
+  });
+} catch (error) {
+  console.log(error);
+}
