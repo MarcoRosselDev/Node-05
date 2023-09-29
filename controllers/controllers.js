@@ -2,10 +2,11 @@ const path = require("path");
 const Task = require("../schemas/tasks.js");
 
 const getTask = async (req, res) => {
-  console.log(req.url);
-  res.status(200).sendFile(path.resolve(__dirname, "../public/index.html"));
+  //console.log(req.url);
+  //res.status(200).sendFile(path.resolve(__dirname, "../public/index.html"));
   // const smallTask = new Task({ title: "first task", content: "random text" });
   // await smallTask.save();
+  res.status(200).json({ data: "you are in localhost:5000/api/v1/tasks" });
 };
 
 const createTask = async (req, res) => {
