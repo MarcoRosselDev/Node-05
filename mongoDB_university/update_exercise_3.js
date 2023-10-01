@@ -21,6 +21,19 @@ db.birds.updateOne({ common_name: "Robin Redbreast" },
   { upsert: true }
 )
 
+db.birds.updateOne({ common_name: "Robin Redbreast" },
+  { $set: { $inc: { "sightings": 1 }, last_updated: new Date() } },
+  { upsert: true })
+
+// const example = db.collection.updateOne(
+//   <query>,
+//     [
+//     {$set: {status: "Modified", comments: [ "$misc1", "$misc2" ] } },
+//     {$unset: [ "misc1", "misc2" ] }
+//     ]
+//     ...
+//     )
+
 /*Return, Update, and Add a Document
 In this activity, we will perform an operation that can return, edit, and optionally add a new document to a collection in one step.
 
