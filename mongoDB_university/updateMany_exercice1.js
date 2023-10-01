@@ -1,0 +1,4 @@
+db.birds.updateMany(
+  {},
+  {}
+)
