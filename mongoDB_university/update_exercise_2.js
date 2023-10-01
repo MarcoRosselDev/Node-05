@@ -24,7 +24,8 @@ o = {
 //1:
 db.birds.updateOne(
   { _id: ObjectId("6268471e613e55b82d7065d7") },
-  { $push: { diet: ["newts", "opossum", "skunks", "squirrels"] } }
+  { $set: { diet: ["newts", "opossum", "skunks", "squirrels"] } },
+  { upsert: true }
 )
 
 //2:
@@ -49,8 +50,3 @@ const firstWrond = {
 
 // segundo intento
 
-db.birds.updateOne(
-  { _id: ObjectId("6268471e613e55b82d7065d7") },
-  { $set: { diet: ["newts", "opossum", "skunks", "squirrels"] } },
-  { upsert: true }
-)

@@ -56,12 +56,7 @@ const return1 = {
 //2:
 db.birds.updateOne(
   { _id: ObjectId("6268413c613e55b82d7065d2") },
-  { $push: { tags: "geese" } }
-)
-
-db.birds.updateOne(
-  { _id: ObjectId("6268413c613e55b82d7065d2") },
-  { $set: { tags: ["greese", "herbivore", "migration"] } },
+  { $set: { tags: ["geese", "herbivore", "migration"] } },
   { upsert: true })
 
 db.birds.updateOne({ _id: ObjectId("6268413c613e55b82d7065d2") }, { $set: { tags: ["geese", "herbivore", "migration"] } }, { upsert: true })
