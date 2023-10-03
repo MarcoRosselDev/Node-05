@@ -1,7 +1,7 @@
-db.companies.find({category_code: "musica"}).sort({name:1})
+db.companies.find({ category_code: "musica" }).sort({ name: 1 })
 // sort({<key>: 1 | -1})---> 1 ordena ascendente, -1 descendente
 
-db.companies.find({category_code: "musica"},{name:1, number_of_employees: 1}).sort({number_of_employees:-1}).limit(3)
+db.companies.find({ category_code: "musica" }, { name: 1, number_of_employees: 1 }).sort({ number_of_employees: -1 }).limit(3)
 
 /*  Sorting and Limiting Query Results in MongoDB
 
