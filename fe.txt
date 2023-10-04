@@ -1,0 +1,9 @@
+USERNAME_DB='pythonmode9'
+PASSWORD='0uAvmmPuV6BwyzrM'
+CLUSTER='node-5'
+DB_NAME='Tienda'
+COLLECTION_NAME='Productos'
+MONGO_URL='mongodb+srv://pythonmode9:0uAvmmPuV6BwyzrM@$node-5.vis1qwi.mongodb.net/node-api-05?retryWrites=true&w=majority'
+
+a='Database User Username: myAtlasDBUser
+Database User Password: myatlas-001'
