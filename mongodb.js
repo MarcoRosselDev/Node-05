@@ -41,7 +41,10 @@ const main = async () => {
   try {
     await connectToDatabase()
     //let result = await accountsCollection.insertOne(sambleAccount)
-    await accountsCollection.insertMany(manyAcounts);
+    //await accountsCollection.insertMany(manyAcounts);
+    //let result = accountsCollection.find({ "name": { $in: ["eva", "lusho"] } });
+    let result = accountsCollection.find()
+    await result.forEach(document => console.log(document))
   } catch (error) {
     console.error(`Error inserting document: ${error}`)
   } finally {
