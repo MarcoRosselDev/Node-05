@@ -4,13 +4,18 @@ db.sightings.aggregate([
       species_common: "Eastern Bluebird"
     }
   },
-  {}
+  {
+    $group:{
+      _id: $location.type,
+      totalSightings: {$count: {}}
+    }
+  }
 ])
 
 /*
 $match and $group Stages
 
-You have a database called bird_data with a collection of sightings. 
+You have a database called bird_data with a collection of sightings[avistamientos, saitings]. 
 We want to use this data to find out where we should go to see our 
 favorite bird, Eastern Bluebirds. We’ll use the location coordinates
 (latitude and longitude) and the number of sightings in each location 
