@@ -31,3 +31,4 @@ const main = async () => {
 }
 
 main()
+// error mas comund el de incluir await en las peticiones crud
