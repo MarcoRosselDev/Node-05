@@ -5,7 +5,7 @@
 //  $match
 // The $match stage filters for documents that match specified conditions.Here's the code for $match:
 
-db.coleccion.aggregation([{
+db.coleccion.aggregate([{
   $match: {
     "field_name": "value"
   }
