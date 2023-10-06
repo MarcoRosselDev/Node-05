@@ -1,13 +1,11 @@
 db.sightings.aggregate([
   {
-    $match: {
-      species_common: "Eastern Bluebird"
-    }
+    $match: { species_common: "Eastern Bluebird" }
   },
   {
-    $group:{
-      _id: $location.type,
-      totalSightings: {$count: {}}
+    $group: {
+      _id: "$location.coordinates",
+      totalSightings: { $count: {} }
     }
   }
 ])
