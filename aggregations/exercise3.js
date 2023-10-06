@@ -6,6 +6,13 @@ database and collection. Before we do that, we have to add a class
 field and set that field to bird in all of the existing documents in 
 the collection */
 
+db.birds.aggregate([
+  {
+    $set: {
+      class: "bird"
+    }
+  }
+])
 db.birds.findOne()
 const oneData = {
   _id: ObjectId("62684d24613e55b82d7065d9"),
