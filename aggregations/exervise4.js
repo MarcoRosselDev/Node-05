@@ -51,3 +51,24 @@ db.sightings.aggregate([
     $out: "random"
   }
 ])
+
+db.sightings.aggregate([
+  {
+    $group: {
+      _id: "$species_common",
+      total_sightings: { $count: {} }
+    }
+  },
+  {
+    $out: "sightings"
+  }
+])
+
+db.sightings.aggregate([
+  {
+    $group: {
+      _id: "$species_common"
+    }
+  },
+  { $out: "wightings_records" }
+])
