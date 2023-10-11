@@ -26,9 +26,12 @@ const createTask = async (req, res) => {
   //   completed: `${completed}`,//--> por lo que lanza error completed undefined
   //});
   try {
+    //const task = await Task.create(req.bodys);
+    //res.status(201).json({ task });
+
     const small = new Task(req.body)
     await small.save();
-    res.status(200).json(small);
+    res.status(201).json(small);
   } catch (error) {
     res.status(500).json({ msg: error })
   }
@@ -42,9 +45,19 @@ const deleteTask = (req, res) => {
   res.send("hi");
 };
 
+const getAll = async (req, res) => {
+  try {
+    const query = await Task.find({});
+    res.status(200).json(query)
+  } catch (error) {
+    res.status(500).json({ errorMsg: error })
+  }
+}
+
 module.exports = {
   getTask,
   createTask,
   putTask,
   deleteTask,
+  getAll
 };
