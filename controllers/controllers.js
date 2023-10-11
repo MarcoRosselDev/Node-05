@@ -45,23 +45,26 @@ const deleteTask = (req, res) => {
   res.send("hi");
 };
 
+// esto es con mongoose
 const getAll = async (req, res) => {
   try {
     const query = await Task.find();
-    // this return an object, ---> do this in window because ubuntu is bugged
     res.status(200).json(query)
   } catch (error) {
     res.status(500).json({ errorMsg: error })
   }
 }
 
-const collectionMD = client.db('test-store').collection('users');
-
+// esto es con mongoDB driver
+const collectionMD = client.db('node-api-05').collection('tasks');
 const getAllMongoDriver = async (req, res) => {
   try {
     client.connect();
+    // this return an object, ---> do this in window because ubuntu is bugged
     const query = await collectionMD.find();
-    res.status(200).json(query);
+    let send = []
+    await query.forEach(doc => send.push(doc));
+    res.status(200).json(send);
   } catch (error) {
     res.status(500).json({ errorMsg: error })
   } finally {
