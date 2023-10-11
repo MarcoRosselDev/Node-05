@@ -7,7 +7,6 @@ const uri = process.env.MONGO_URL
 const client = new MongoClient(uri)
 
 const getTask = async (req, res) => {
-
   try {
     client.connect()
     const collection = client.db("node-api-05").collection("tasks");
@@ -21,11 +20,13 @@ const getTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { title, content } = req.body;
-  const small = new Task({
-    title: `${title}`,
-    content: `${content}`,
-  });
+  //const { name, completed } = req.body;
+  console.log(req.body);
+  // const small = new Task({ ----> esto no funciona por que completed 
+  //   name: `${name}`,     //----> es por defecto false pero no esta definido en req.body
+  //   completed: `${completed}`,//--> por lo que lanza error completed undefined
+  // });
+  const small = new Task(req.body)
   await small.save();
   res.status(200).json({ small });
 };
