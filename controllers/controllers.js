@@ -1,16 +1,26 @@
+const { MongoClient } = require("mongodb");
 const path = require("path");
 const Task = require("../schemas/tasks.js");
+require('dotenv').config()
+const uri = process.env.MONGO_URL
+
+const client = new MongoClient(uri)
 
 const getTask = async (req, res) => {
-  //console.log(req.url);
-  //res.status(200).sendFile(path.resolve(__dirname, "../public/index.html"));
-  // const smallTask = new Task({ title: "first task", content: "random text" });
-  // await smallTask.save();
-  res.status(200).json({ data: "you are in localhost:5000/api/v1/tasks" });
+
+  try {
+    client.connect()
+    const collection = client.db("node-api-05").collection("tasks");
+    const consulta = await collection.findOne();
+    res.status(200).json(consulta);
+  } catch (error) {
+    console.error(error)
+  } finally {
+    await client.close();
+  }
 };
 
 const createTask = async (req, res) => {
-  //res.status(200).json({ data: "create task" });
   const { title, content } = req.body;
   const small = new Task({
     title: `${title}`,
