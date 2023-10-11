@@ -11,7 +11,7 @@ const TaskSchema = new mongoose.Schema({
     type: String,
     required: [true, "deve espesificar un nombre"],// lanza error si no se incluye
     trim: true, // esto elimina los espacios innecesarios === "   marco   " == "marco"
-    maxlength: [20, "no puede ser mas largo que 20 caracteres."]
+    maxlength: [40, "no puede ser mas largo que 40 caracteres."]
   },
   completed: {
     type: Boolean,

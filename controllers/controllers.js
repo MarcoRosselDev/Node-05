@@ -21,14 +21,17 @@ const getTask = async (req, res) => {
 
 const createTask = async (req, res) => {
   //const { name, completed } = req.body;
-  console.log(req.body);
-  // const small = new Task({ ----> esto no funciona por que completed 
+  //const small = new Task({ ----> esto no funciona por que completed 
   //   name: `${name}`,     //----> es por defecto false pero no esta definido en req.body
   //   completed: `${completed}`,//--> por lo que lanza error completed undefined
-  // });
-  const small = new Task(req.body)
-  await small.save();
-  res.status(200).json({ small });
+  //});
+  try {
+    const small = new Task(req.body)
+    await small.save();
+    res.status(200).json(small);
+  } catch (error) {
+    res.status(500).json({ msg: error })
+  }
 };
 
 const putTask = (req, res) => {
