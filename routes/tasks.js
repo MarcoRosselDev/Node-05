@@ -5,12 +5,14 @@ const {
   createTask,
   putTask,
   deleteTask,
-  getAll
+  getAll,
+  getAllMongoDriver
 } = require("../controllers/controllers.js");
 
 //router.get("/", getTask);
 router.route("/").get(getTask).post(createTask);
 router.route("/:id").put(putTask).delete(deleteTask);
-router.route("/tester").get(getAll)
+router.route("/tester").get(getAll);
+router.route("/mongodriver").get(getAllMongoDriver);
 
 module.exports = router;
