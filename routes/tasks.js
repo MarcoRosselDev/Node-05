@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getTask,
   createTask,
   putTask,
   deleteTask,
-  getAll,
+  getAll
+} = require("../controllers/controllersMongoose.js");
+const {
+  getTask,
   getAllMongoDriver
-} = require("../controllers/controllers.js");
+} = require("../controllers/controllersMongoDriver.js")
 
 //router.get("/", getTask);
 router.route("/").get(getTask).post(createTask);

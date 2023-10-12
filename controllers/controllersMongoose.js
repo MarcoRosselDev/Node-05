@@ -1,23 +1,5 @@
-const { MongoClient } = require("mongodb");
-const path = require("path");
+//const path = require("path");
 const Task = require("../schemas/tasks.js");
-require('dotenv').config();
-const uri = process.env.MONGO_URL;
-
-const client = new MongoClient(uri);
-
-const getTask = async (req, res) => {
-  try {
-    client.connect()
-    const collection = client.db("node-api-05").collection("tasks");
-    const consulta = await collection.findOne();
-    res.status(200).json(consulta);
-  } catch (error) {
-    console.error(error)
-  } finally {
-    await client.close();
-  }
-};
 
 const createTask = async (req, res) => {
   //const { name, completed } = req.body;
@@ -55,28 +37,9 @@ const getAll = async (req, res) => {
   }
 }
 
-// esto es con mongoDB driver
-const collectionMD = client.db('node-api-05').collection('tasks');
-const getAllMongoDriver = async (req, res) => {
-  try {
-    client.connect();
-    // this return an object, ---> do this in window because ubuntu is bugged
-    const query = await collectionMD.find();
-    let send = []
-    await query.forEach(doc => send.push(doc));
-    res.status(200).json(send);
-  } catch (error) {
-    res.status(500).json({ errorMsg: error })
-  } finally {
-    await client.close();
-  }
-}
-
 module.exports = {
-  getTask,
   createTask,
   putTask,
   deleteTask,
   getAll,
-  getAllMongoDriver
 };
