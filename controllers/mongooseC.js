@@ -2,15 +2,7 @@
 const Task = require("../schemas/tasks.js");
 
 const createTask = async (req, res) => {
-  //const { name, completed } = req.body;
-  //const small = new Task({ ----> esto no funciona por que completed 
-  //   name: `${name}`,     //----> es por defecto false pero no esta definido en req.body
-  //   completed: `${completed}`,//--> por lo que lanza error completed undefined
-  //});
   try {
-    //const task = await Task.create(req.bodys);
-    //res.status(201).json({ task });
-
     const small = new Task(req.body)
     await small.save();
     res.status(201).json(small);
@@ -23,8 +15,18 @@ const putTask = (req, res) => {
   res.status(200).json({ data: "put task" });
 };
 
-const deleteTask = (req, res) => {
-  res.send("hi");
+const deleteTask = async (req, res) => {
+  try {
+    /* console.log(req.body);
+    console.log(req.body._id); */
+    const idDelete = await Task.deleteOne(req.body);
+    res.status(200).json({
+      msg: "Se elimino el id exitosamente",
+      msgMongoose: idDelete
+  })
+  } catch (error) {
+    res.status(404).json({msg:error})
+  }
 };
 
 // esto es con mongoose

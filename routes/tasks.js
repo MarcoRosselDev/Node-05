@@ -5,17 +5,17 @@ const {
   putTask,
   deleteTask,
   getAll
-} = require("../controllers/controllersMongoose.js");
+} = require("../controllers/mongooseC.js");
 const {
   createTaskMDdriver,
   getTask,
   getAllMongoDriver
-} = require("../controllers/controllersMongoDriver.js")
+} = require("../controllers/mongoDriverC.js")
 
 //router.get("/", getTask);
 router.route("/").get(getTask).post(createTask);
 router.route("/:id").put(putTask).delete(deleteTask);
-router.route("/tester").get(getAll);
+router.route("/tester").get(getAll).delete(deleteTask);
 router.route("/mongodriver").get(getAllMongoDriver).post(createTaskMDdriver);
 
 module.exports = router;
