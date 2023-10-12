@@ -11,8 +11,19 @@ const createTask = async (req, res) => {
   }
 };
 
-const putTask = (req, res) => {
-  res.status(200).json({ data: "put task" });
+const putTask = async (req, res) => {
+  //A.findByIdAndUpdate(id, update, options)  // returns Query ---> example 
+  try {
+    const {id:idUpdate} = req.params;
+    console.log(req.params);
+    const doc = await Task.findByIdAndUpdate(idUpdate, req.body, {new:true, runValidators:true});
+    if (!doc) {
+      return res.status(404).json({msg: `no se encontro id : ${idUpdate}`});
+    }
+    res.status(200).json(doc);
+  } catch (error) {
+    res.status(500).json({ msg: error })
+  }
 };
 
 const deleteTask = async (req, res) => {
