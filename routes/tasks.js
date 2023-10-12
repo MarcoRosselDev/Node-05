@@ -7,6 +7,7 @@ const {
   getAll
 } = require("../controllers/controllersMongoose.js");
 const {
+  createTaskMDdriver,
   getTask,
   getAllMongoDriver
 } = require("../controllers/controllersMongoDriver.js")
@@ -15,6 +16,6 @@ const {
 router.route("/").get(getTask).post(createTask);
 router.route("/:id").put(putTask).delete(deleteTask);
 router.route("/tester").get(getAll);
-router.route("/mongodriver").get(getAllMongoDriver);
+router.route("/mongodriver").get(getAllMongoDriver).post(createTaskMDdriver);
 
 module.exports = router;

@@ -5,13 +5,25 @@ const uri = process.env.MONGO_URL;
 const client = new MongoClient(uri);
 const collectionMD = client.db('node-api-05').collection('tasks');
 
+const createTaskMDdriver = async (req, res) => {
+  try {
+    client.connect();
+    const x = await collectionMD.insertOne(req.body);
+    res.status(201).json(x);
+  } catch (error) {
+    res.status(500).json({ errorMsg: error })
+  } finally{
+    await client.close();
+  }
+}
+
 const getTask = async (req, res) => { // ---> obtener un documento de para ver la estructura
   try {
     client.connect()
     const consulta = await collectionMD.findOne();
     res.status(200).json(consulta);
   } catch (error) {
-    console.error(error)
+    res.status(500).json({ errorMsg: error })
   } finally {
     await client.close();
   }
@@ -33,6 +45,7 @@ const getAllMongoDriver = async (req, res) => {
 }
 
 module.exports = {
+  createTaskMDdriver,
   getTask,
   getAllMongoDriver
 };
