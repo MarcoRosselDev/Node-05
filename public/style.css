@@ -32,3 +32,8 @@ ul{
 li{
     margin-top: 3px;
 }
+
+/* hidden _id for now */
+.hiden{
+    display: none;
+}

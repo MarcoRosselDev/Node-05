@@ -4,15 +4,6 @@ const tasks = document.querySelector('.tasks');
 
 let lista = []
 
-button.addEventListener('click', function () {
-  //lista.push(input.value)
-  let data = {"name": input.value}
-  console.log('enviado');
-  createData(data);
-  loadData()
-  input.value = '';
-});
-
 const createData = async (data) => {
   try {
     const response = await fetch("/api/v1/tasks/mongodriver", {
@@ -20,9 +11,24 @@ const createData = async (data) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     })
+    .then(loadData())
     return response.json()
   } catch (error) {
     console.error(error)
+  }
+}
+
+const deleteData = async (id) => {
+  try {
+    const response = await fetch(`/api/v1/tasks/${id}`, {
+      method: "DELETE"
+    })
+    .then(res => console.log(res))
+    return response.json();
+  } catch (error) {
+    console.error(error)
+  } finally{
+    loadData()
   }
 }
 
@@ -39,7 +45,7 @@ const loadData = async () => {
         let elem = '';
         // iterar por el arreglo y mostrarlo en la lista
         for (let i = 0; i < a.length; i++) {
-          elem += `<li>${a[i].name} <button class="deleteButton">delete</button></li>`
+          elem += `<li>${a[i].name} <a class="hiden">${a[i]._id}</a> <button class="deleteButton">delete</button></li>`
         }
         tasks.children[0].innerHTML = elem;
       })
@@ -50,13 +56,27 @@ const loadData = async () => {
       deleteButtons[i].addEventListener('click', function (eve) {
         eve.preventDefault();
         console.log('clicked delete button');
-        /* let data = {'name': input.value}
-        createData(data) */
+        //console.log(this.parentNode);
+        let li = this.parentNode
+        //console.log(li.children[0].innerText); --> this is
+        //console.log(li.children.a); --> undefined
+        const id = this.parentNode.children[0].innerText;
+        console.log(id);
+        deleteData(id);
       })
     }
   } catch (error) {
     console.log(error);
   }
 }
+
+button.addEventListener('click', function () {
+  //lista.push(input.value)
+  let data = {"name": input.value}
+  console.log('enviado');
+  createData(data);
+  input.value = '';
+});
+
 
 loadData();
