@@ -1,21 +1,28 @@
 import updateTask from './taskUpdate.js'//--> asi es con javascript vanilla
 
 const enviar = document.querySelector('.enviar');
-const borrar = document.querySelector('.borrar');
-const editar = document.querySelector('.editar');
+const borrar = document.querySelectorAll('.borrar');
+const editar = document.querySelectorAll('.editar');
+const input = document.querySelector('input')
 
 enviar.addEventListener('click', function (ev) {
-    ev.preventDefault();
-    console.log('Presionase el boton enviar');
+  ev.preventDefault();
+  console.log('Presionase el boton enviar');
+  console.log(input.value);
 })
 /* ojo aqui por que el boton enviar es uno, pero borrar y editar pueden ser muchos */
-borrar.addEventListener('click', function (ev) {
+
+borrar.forEach((borr) => {
+  borr.addEventListener('click', function (ev) {
     ev.preventDefault();
     console.log('Presionase el boton borrar');
+  })
 })
-editar.addEventListener('click', function (ev) {
+editar.forEach((edi) => {
+  edi.addEventListener('click', function (ev) {
     ev.preventDefault();
     console.log('Presionase el boton editar');
+  })
 })
 
 updateTask('testing modules')
