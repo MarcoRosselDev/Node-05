@@ -5,14 +5,26 @@ const tasks = document.querySelector('.tasks');
 let lista = []
 
 button.addEventListener('click', function () {
-  lista.push(input.value)
-  let printDom = ''
-  for (let i = 0; i < lista.length; i++) {
-    printDom += `<li>${lista[i]}</li>`;
-  }
-  tasks.children[0].innerHTML = printDom;
+  //lista.push(input.value)
+  let data = {"name": input.value}
+  console.log('enviado');
+  createData(data);
+  loadData()
   input.value = '';
 });
+
+const createData = async (data) => {
+  try {
+    const response = await fetch("/api/v1/tasks/mongodriver", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    return response.json()
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const loadData = async () => {
   try {
@@ -38,12 +50,10 @@ const loadData = async () => {
       deleteButtons[i].addEventListener('click', function (eve) {
         eve.preventDefault();
         console.log('clicked delete button');
+        /* let data = {'name': input.value}
+        createData(data) */
       })
     }
-    /* deleteButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        console.log("You're clicked delete button");
-    }) */
   } catch (error) {
     console.log(error);
   }
