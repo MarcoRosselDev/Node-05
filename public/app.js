@@ -16,18 +16,20 @@ button.addEventListener('click', function () {
 
 const loadData = async () => {
     try {
-        const response = await fetch('/api/v1/tasks/tester', {
+        await fetch('/api/v1/tasks/tester', {
             method: 'GET', headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
         })
         .then(data => data.json())
-        .then((a) => {
-            console.log(a);
+        .then(a => console.log(a))
+            /* let elem = '';
             // iterar por el arreglo y mostrarlo en la lista
-        } 
-        )    
+            for (let i = 0; i < a.length; i++) {
+                elem += `<li>${a[i]}</li>`
+            }
+            tasks.children[0].innerHTML = elem; */
         .catch(error => console.error(error))
     } catch (error) {
         console.log(error);
