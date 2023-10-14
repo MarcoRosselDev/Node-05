@@ -6,6 +6,18 @@ const editar = document.querySelectorAll('.editar');
 const input = document.querySelector('input')
 const main = document.querySelector('main')
 
+console.log(main);
+/* const newDiv = document.createElement("div");
+newDiv.classList.add('lista')
+newDiv.innerHTML = `<p>random text</p>
+<div class="btns">
+    <button class="borrar">Borrar</button>
+    <button class="editar">Editar</button>
+</div>`
+console.log(newDiv);
+
+main.append(newDiv) */
+
 const tarea = async (data) => {
   try {
     const response = await fetch("/api/v1/tasks", {
@@ -21,14 +33,22 @@ const tarea = async (data) => {
       if (event.status == 201) {
         console.log(event);
         console.log('fue 201 !!!');
-        main.appendChild.innerHTML += `
+        const newDiv = document.createElement("div");
+newDiv.classList.add('lista')
+newDiv.innerHTML = `<p>random text</p>
+<div class="btns">
+    <button class="borrar">Borrar</button>
+    <button class="editar">Editar</button>
+</div>`
+main.append(newDiv)
+        /* main.appendChild.innerHTML += ` ---> no sirver
         <div class="lista">
           <p>${input.value}</p>
           <div class="btns">
               <button class="borrar">Borrar</button>
               <button class="editar">Editar</button>
           </div>
-        </div>`
+        </div>` */
       } else {
         console.log(`status: ${event.status}`);
       }
