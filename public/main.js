@@ -1,12 +1,9 @@
-import updateTask from './taskUpdate.js'//--> asi es con javascript vanilla
+import updateTask from './taskUpdate.js';//--> asi es con javascript vanilla
 
 const enviar = document.querySelector('.enviar');
-const borrar = document.querySelectorAll('.borrar');
-const editar = document.querySelectorAll('.editar');
-const input = document.querySelector('input')
-const main = document.querySelector('main')
+const input = document.querySelector('input');
+const main = document.querySelector('main');
 
-console.log(main);
 /* const newDiv = document.createElement("div");
 newDiv.classList.add('lista')
 newDiv.innerHTML = `<p>random text</p>
@@ -28,7 +25,6 @@ const cargarTareas = async () => {
     })
     .then(data => data.json())
     .then((event) => {
-      console.log(event);
       event.forEach((data) => {
         const name = data.name
         // crear un div y agregarlo al final
@@ -40,7 +36,7 @@ const cargarTareas = async () => {
             <button class="borrar">Borrar</button>
             <button class="editar">Editar</button>
           </div>`
-          main.append(newDiv)
+          main.append(newDiv);
       }
       )
     })
@@ -62,9 +58,7 @@ const tarea = async (data) => {
       body: JSON.stringify(data)
     })
       .then((event) => {
-        console.log(event)
         if (event.status == 201) {
-          console.log(event);
           console.log('fue 201 !!!');
           const newDiv = document.createElement("div");
           newDiv.classList.add('lista')
@@ -106,6 +100,19 @@ editar.forEach((edi) => {
     console.log('Presionase el boton editar');
   })
 })
+
+//escuchar todos los botones de eliminar y editar
+const borrar = document.querySelectorAll('.borrar');
+const editar = document.querySelectorAll('.editar');
+
+borrar.forEach(btn => btn.addEventListener("click", function (eve) {
+  eve.preventDefault();
+  console.log("borrar btn");
+}));
+editar.forEach(btn => btn.addEventListener("click", function (eve) {
+  eve.preventDefault();
+  console.log("editar btn");
+}));
 
 updateTask('testing modules')
 /* (function () {
