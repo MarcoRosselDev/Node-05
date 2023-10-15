@@ -12,7 +12,7 @@ const borrarId = async (idDelete) => {
   }
 }
 
-const borrarTarea = (btn) => {
+/* const borrarTarea = (btn) => {
   btn.forEach((borr) => {
     const id = borr.parentElement.parentElement.children[1].innerText;
     borr.addEventListener('click', function (ev) {
@@ -26,6 +26,6 @@ const borrarTarea = (btn) => {
       }
     })
   })
-}
+} */
 
-export default borrarTarea;
+export default borrarId;

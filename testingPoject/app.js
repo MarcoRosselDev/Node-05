@@ -5,7 +5,8 @@ const getData = async (a, b ) =>{
     return `la suma es ${suma}`;
 }
 
-const data = getData(5, 2).then(a => console.log(a))
+const data = getData(5, 2)
+//data.then(a => console.log(a))
 
-console.log(data);
+//console.log(data.then(a => console.log(a)));
 //console.log(data);

@@ -1,5 +1,5 @@
 const main = document.querySelector('main');
-import borrarTarea from './borrarTarea.js';
+import borrarId from './borrarTarea.js';
 
 const cargarTareas = async () => {
   try {
@@ -33,12 +33,18 @@ const cargarTareas = async () => {
         const editar = document.querySelectorAll('.editar');
         const borrar = document.querySelectorAll('.borrar'); // btn borrar
 
-        const b = borrarTarea(borrar);
-        console.log(b);
-        if (b) {
-          console.log('quiter div del dom');
-        }
-
+        borrar.forEach((btn) => {
+          const id = btn.parentElement.parentElement.children[1].innerText
+          btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            const del = borrarId(id);
+            console.log(del, "1");
+            del.then(a =>console.log(a))
+            console.log(del, "2");
+          })
+        })
+        //const b = borrarTarea(borrar);// esperar retorne un valor o un estado
+        
         editar.forEach((edi) => {
           edi.addEventListener('click', function (ev) {
             ev.preventDefault();
