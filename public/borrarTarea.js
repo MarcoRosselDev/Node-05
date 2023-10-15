@@ -2,9 +2,9 @@
 
 const borrarId = async (idDelete) => {
   try {
-    const response = await fetch(`/api/v1/tasks/mongodriver`, {
+    const response = await fetch(`/api/v1/tasks/tester`, {
       method: "DELETE",
-      body: {id: idDelete}
+      body: {_id: idDelete}
     })
     return response.json()
   } catch (error) {
