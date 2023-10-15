@@ -68,8 +68,9 @@ const deleteOneMongoDriver = async (req, res) =>{
 const deleteWithMongoDriver = async (req, res )=> {
   try {
     client.connect();
-    const id = req.params;
-    const query = {_id: id};
+    console.log(req.body);
+    const idParam = req.body._id;
+    const query = {_id: idParam};
     const result = await collectionMD.deleteOne(query)
     if (result.deletedCount === 1) {
       console.log("Successfully deleted one document.");

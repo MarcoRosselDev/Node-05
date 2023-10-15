@@ -17,7 +17,7 @@ const {
 //router.get("/", getTask);
 router.route("/").get(getTask).post(createTask);
 router.route("/:id").put(putTask).delete(deleteWithMongoDriver);
-router.route("/tester").get(getAll).delete(deleteTask);
+router.route("/tester").get(getAll).delete(deleteWithMongoDriver);
 router.route("/mongodriver").get(getAllMongoDriver).post(createTaskMDdriver).delete(deleteOneMongoDriver);
 
 module.exports = router;

@@ -1,11 +1,14 @@
 //const borrar = document.querySelectorAll('.borrar');
 
 const borrarId = async (idDelete) => {
+  const payload = {_id: idDelete}
   try {
-    const response = await fetch(`/api/v1/tasks/:${idDelete}`, {
-      method: "DELETE"
+    const response = await fetch(`/api/v1/tasks/tester`, {
+      method: "DELETE",
+      body: JSON.stringify(payload)// no se esta enviando el body
+      //retorna {}
     })
-    return response.json()
+    return response
   } catch (error) {
     console.error(error)
   }

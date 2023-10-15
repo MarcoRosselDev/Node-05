@@ -18,10 +18,10 @@ a.then((status) => {
         ev.preventDefault();
         console.log("click borrar btn");
         console.log(`id: ${id}`);
-        const br = borrarId(id);
-        br.then(resp => console.log(resp))
-        console.log(this.parentElement.parentElement.classList.add("hiden"));
-        this.parentElement.parentElement.classList.add("hiden");
+        const d = borrarId(id);
+        d.then(e => console.log(e));
+        //console.log(this.parentElement.parentElement.classList.add("hiden"));
+        //this.parentElement.parentElement.classList.add("hiden");
       })
     })
   }
