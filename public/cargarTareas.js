@@ -19,12 +19,13 @@ const cargarTareas = async () => {
           newDiv.classList.add('lista')
           newDiv.innerHTML = `
             <p>${name}</p>
-            <p class="hiden">${id}</p>
+            <p>${id}</p>
             <div class="btns">
               <button class="borrar">Borrar</button>
               <button class="editar">Editar</button>
             </div>`
           main.append(newDiv);
+          // class="hiden" --> para ocultar p id despues
         }
         )
       })

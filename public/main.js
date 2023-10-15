@@ -1,5 +1,5 @@
 import updateTask from './taskUpdate.js';//--> asi es con javascript vanilla
-import tarea from './taskUpdate.js';
+import crearTarea from './crearTarea.js';
 import cargarTareas from './cargarTareas.js';
 
 const enviar = document.querySelector('.enviar');
@@ -10,7 +10,8 @@ cargarTareas()
 enviar.addEventListener('click', function (ev) {
   ev.preventDefault();
   const body = { name: input.value }
-  tarea(body);
+  crearTarea(body);
+  input.value = '';
 })
 
 updateTask('testing modules')
