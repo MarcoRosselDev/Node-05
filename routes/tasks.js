@@ -9,13 +9,14 @@ const {
 const {
   createTaskMDdriver,
   getTask,
-  getAllMongoDriver
+  getAllMongoDriver,
+  deleteOneMongoDriver
 } = require("../controllers/mongoDriverC.js")
 
 //router.get("/", getTask);
 router.route("/").get(getTask).post(createTask);
 router.route("/:id").put(putTask).delete(deleteTask);
 router.route("/tester").get(getAll).delete(deleteTask);
-router.route("/mongodriver").get(getAllMongoDriver).post(createTaskMDdriver);
+router.route("/mongodriver").get(getAllMongoDriver).post(createTaskMDdriver).delete(deleteOneMongoDriver);
 
 module.exports = router;

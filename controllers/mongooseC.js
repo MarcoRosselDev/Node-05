@@ -30,6 +30,7 @@ const putTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   try {
     /* console.log(req.body);
+    ver estructura de deleteOne on mongoose
     console.log(req.body._id); */
     const idDelete = await Task.deleteOne(req.body);
     res.status(200).json({

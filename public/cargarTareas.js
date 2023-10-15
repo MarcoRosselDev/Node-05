@@ -33,7 +33,11 @@ const cargarTareas = async () => {
         const editar = document.querySelectorAll('.editar');
         const borrar = document.querySelectorAll('.borrar'); // btn borrar
 
-        borrarTarea(borrar)
+        const b = borrarTarea(borrar);
+        console.log(b);
+        if (b) {
+          console.log('quiter div del dom');
+        }
 
         editar.forEach((edi) => {
           edi.addEventListener('click', function (ev) {
