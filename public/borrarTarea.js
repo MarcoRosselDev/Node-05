@@ -1,8 +1,8 @@
-const borrar = document.querySelectorAll('.borrar');
+//const borrar = document.querySelectorAll('.borrar');
 
-const borrarTarea = async () => {
+const borrarTarea = async (btn) => {
 
-  borrar.forEach((borr) => {
+  btn.forEach((borr) => {
     /* console.log(borr.parentElement.parentElement.children[1].innerText, "1");
     console.log(borr.parentNode.parentElement.children, "2");
     console.log(borr.parentElement.id , "3"); */
