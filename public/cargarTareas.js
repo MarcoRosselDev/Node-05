@@ -28,10 +28,7 @@ const cargarTareas = async () => {
           main.append(newDiv)}
           )
       })
-
-    
-    console.log(response);
-    return response;
+    return true;
   } catch (error) {
     console.error(error)
   }

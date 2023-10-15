@@ -6,7 +6,18 @@ const enviar = document.querySelector('.enviar');
 const input = document.querySelector('input');
 
 const a = cargarTareas();
-a.then(c => console.log(c))
+a.then((status) => {
+  if (status) {
+    console.log("cargar botones");
+    const btnBorrar = document.querySelectorAll(".borrar")
+    const id = btnBorrar.parentElement.parentElement.children[1].innerText;
+    btnBorrar.forEach(event => {
+      event.preventDefault();
+      console.log("click borrar btn");
+      console.log(`id: ${id}`);
+    })
+  }
+})
 
 enviar.addEventListener('click', function (ev) {
   ev.preventDefault();
