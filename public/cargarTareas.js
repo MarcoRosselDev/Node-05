@@ -3,7 +3,7 @@ import borrarId from './borrarTarea.js';
 
 const cargarTareas = async () => {
   try {
-    const response = await fetch("/api/v1/tasks/mongodriver", {
+    const response = await fetch("/api/v1/tasks/tester", {
       method: 'GET', headers: {
         'Content-Type': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -24,34 +24,14 @@ const cargarTareas = async () => {
               <button class="borrar">Borrar</button>
               <button class="editar">Editar</button>
             </div>`
-          main.append(newDiv);
-          // class="hiden" --> para ocultar p id despues
-        }
-        )
+            // class="hiden" --> para ocultar p id despues
+          main.append(newDiv)}
+          )
       })
-      .then(() => {
-        const editar = document.querySelectorAll('.editar');
-        const borrar = document.querySelectorAll('.borrar'); // btn borrar
 
-        borrar.forEach((btn) => {
-          const id = btn.parentElement.parentElement.children[1].innerText
-          btn.addEventListener('click', function (event) {
-            event.preventDefault();
-            const del = borrarId(id);
-            console.log(del, "1");
-            del.then(a =>console.log(a))
-            console.log(del, "2");
-          })
-        })
-        //const b = borrarTarea(borrar);// esperar retorne un valor o un estado
-        
-        editar.forEach((edi) => {
-          edi.addEventListener('click', function (ev) {
-            ev.preventDefault();
-            console.log('Presionase el boton editar');
-          })
-        })
-      })
+    
+    console.log(response);
+    return response;
   } catch (error) {
     console.error(error)
   }

@@ -5,7 +5,8 @@ import cargarTareas from './cargarTareas.js';
 const enviar = document.querySelector('.enviar');
 const input = document.querySelector('input');
 
-cargarTareas()
+const a = cargarTareas();
+a.then(c => console.log(c))
 
 enviar.addEventListener('click', function (ev) {
   ev.preventDefault();
@@ -14,4 +15,4 @@ enviar.addEventListener('click', function (ev) {
   input.value = '';
 })
 
-updateTask('testing modules')
+//updateTask('testing modules')
