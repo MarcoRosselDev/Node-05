@@ -25,6 +25,23 @@ const cargarTareas = async () => {
         }
         )
       })
+      .then(()=>{
+        const borrar = document.querySelectorAll('.borrar');
+        const editar = document.querySelectorAll('.editar');
+
+        borrar.forEach((borr) => {
+          borr.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            console.log('Presionase el boton borrar');
+          })
+        })
+        editar.forEach((edi) => {
+          edi.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            console.log('Presionase el boton editar');
+          })
+        })
+      })
   } catch (error) {
     console.error(error)
   }
