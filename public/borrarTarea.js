@@ -2,9 +2,8 @@
 
 const borrarId = async (idDelete) => {
   try {
-    const response = await fetch(`/api/v1/tasks/tester`, {
-      method: "DELETE",
-      body: {_id: idDelete}
+    const response = await fetch(`/api/v1/tasks/:${idDelete}`, {
+      method: "DELETE"
     })
     return response.json()
   } catch (error) {

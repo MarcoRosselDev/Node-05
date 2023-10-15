@@ -65,9 +65,30 @@ const deleteOneMongoDriver = async (req, res) =>{
   }
 }
 
+const deleteWithMongoDriver = async (req, res )=> {
+  try {
+    client.connect();
+    const id = req.params;
+    const query = {_id: id};
+    const result = await collectionMD.deleteOne(query)
+    if (result.deletedCount === 1) {
+      console.log("Successfully deleted one document.");
+      res.status(200).json(result);
+    } else {
+      console.log("No documents matched the query. Deleted 0 documents.");
+      res.status(500).json({data:`no se encontro el id: ${id}`})
+    }
+  } catch (error) {
+    res.status(500).json({ errorMsg: error })
+  } finally{
+    await client.close();
+  }
+}
+
 module.exports = {
   createTaskMDdriver,
   getTask,
   getAllMongoDriver,
-  deleteOneMongoDriver
+  deleteOneMongoDriver,
+  deleteWithMongoDriver
 };
