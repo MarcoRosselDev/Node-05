@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 require('dotenv').config();
 const uri = process.env.MONGO_URL;
 
@@ -86,10 +86,36 @@ const deleteWithMongoDriver = async (req, res )=> {
   }
 }
 
+const deleteParams = async (req, res) => {
+  try {
+    client.connect();
+    console.log(req.params);
+    const idParam = req.params.id;
+    const query = {"_id": ObjectId(idParam)};
+    // example of query to delete
+    // const documentToDelete = { _id: ObjectId("62d6e04ecab6d8e13049749c") }
+    console.log(query);
+    const result = await collectionMD.deleteOne(query)
+    console.log(result);
+    if (result.deletedCount === 1) {
+      console.log("Successfully deleted one document.");
+      res.status(200).json(result);
+    } else {
+      console.log("No documents matched the query. Deleted 0 documents.");
+      res.status(500).json({data:`no se encontro el id: ${idParam}`})
+    }
+  } catch (error) {
+    res.status(500).json({ errorMsg: error })
+  } finally{
+    await client.close();
+  }
+}
+
 module.exports = {
   createTaskMDdriver,
   getTask,
   getAllMongoDriver,
   deleteOneMongoDriver,
-  deleteWithMongoDriver
+  deleteWithMongoDriver,
+  deleteParams
 };
