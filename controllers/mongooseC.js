@@ -29,16 +29,14 @@ const putTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
   try {
-    /* console.log(req.body);
-    ver estructura de deleteOne on mongoose
-    console.log(req.body._id); */
+    console.log(req.body);
     const idDelete = await Task.deleteOne(req.body);
     res.status(200).json({
-      msg: "Se elimino el id exitosamente",
+      msg: `Se elimino el id exitosamente ${req.body}`,
       msgMongoose: idDelete
   })
   } catch (error) {
-    res.status(404).json({msg:error})
+    res.status(500).json({msg:error})
   }
 };
 
@@ -52,9 +50,19 @@ const getAll = async (req, res) => {
   }
 }
 
+const deleteTaskId = async (req, res) => {
+  const { id: taskID } = req.params
+  const task = await Task.findOneAndDelete({ _id: taskID })
+  if (!task) {
+    res.status(404).json({err: `No se encontro el id: ${taskID}`})
+  }
+  res.status(200).json({ task })
+}
+
 module.exports = {
   createTask,
   putTask,
   deleteTask,
   getAll,
+  deleteTaskId
 };
