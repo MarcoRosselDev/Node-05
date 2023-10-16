@@ -1,4 +1,4 @@
-import updateTask from './taskUpdate.js';//--> asi es con javascript vanilla
+import actualizarTarea from './actualizarTarea.js';//--> asi es con javascript vanilla
 import crearTarea from './crearTarea.js';
 import cargarTareas from './cargarTareas.js';
 import borrarId from './borrarTarea.js'
@@ -25,6 +25,18 @@ a.then((status) => {
         this.parentElement.parentElement.classList.add("hiden");
       })
     })
+
+    const btnActualizar = document.querySelectorAll(".editar");
+
+    btnActualizar.forEach(btn =>{
+      const id = btn.parentElement.parentElement.children[1].innerText;
+      btn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+
+        const act = actualizarTarea(id, input.value);
+      })
+    })
+
   }
 })
 
