@@ -13,12 +13,13 @@ a.then((status) => {
     const btnBorrar = document.querySelectorAll(".borrar")
     
     btnBorrar.forEach(btn => {
-      const id = btn.parentElement.parentElement.children[1].innerText;
+      const name = btn.parentElement.parentElement.children[0].innerText;
+      console.log(btn.parentElement.parentElement.children[0].innerText);
       btn.addEventListener('click', function (ev) {
         ev.preventDefault();
         console.log("click borrar btn");
-        console.log(`id: ${id}`);
-        const d = borrarId(id);
+        console.log(`name: ${name}`);
+        const d = borrarId(name);
         d.then(e => console.log(e));
         //console.log(this.parentElement.parentElement.classList.add("hiden"));
         //this.parentElement.parentElement.classList.add("hiden");
