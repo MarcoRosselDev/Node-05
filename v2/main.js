@@ -1,5 +1,11 @@
 //import actualizarTarea from './actualizarTarea.js';//--> asi es con javascript vanilla
+const editarBtn = document.querySelectorAll('.editar')
 
-console.log('working with this version to play with styles and html structure to update tasks button');
+editarBtn.forEach(btn =>{
+  btn.addEventListener('click', function (event) {
+    event.preventDefault()
+    console.log("actualizar btn");
+  })
+})
 
 //updateTask('testing modules')
