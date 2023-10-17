@@ -11,26 +11,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 main{
     display: flex;
     flex-direction: column;
-    width: 500px;
-    z-index: -10;
-}
-
-footer{
-    position: absolute;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(3, 3, 3, 0.339);
-    z-index: 10;
-    /*  visibility: collapse; | visible ---> para ocultar o mostrar*/
-    visibility: visible;
+    width: 100%;
+    max-width: 450px;
+    padding-top: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .contenedor{
@@ -67,10 +58,12 @@ footer{
 }
 
 input {
-    border: 1px solid rgba(49, 49, 49, 0.119);
+    border: 1px solid rgba(5, 5, 5, 0.581);
     border-radius: 5px;
     width: 100%;
     height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 button{
@@ -92,3 +85,16 @@ button:hover{
     display: none;
 }
 
+.editar-div{
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 20px 0px 20px;
+}
+
+.ocultar{
+    display: none;
+}
+
+.mostrar{
+    display: flex;
+}
