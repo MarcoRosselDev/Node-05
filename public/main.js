@@ -32,8 +32,16 @@ a.then((status) => {
       const id = btn.parentElement.parentElement.children[1].innerText;
       btn.addEventListener('click', function (ev) {
         ev.preventDefault();
-
-        const act = actualizarTarea(id, input.value);
+        console.log("actualizar btn");
+        //console.log(this.parentElement.parentElement.children[3].classList);
+        let div = this.parentElement.parentElement.children[3].classList;
+        
+        if (div.contains('ocultar') == true) {
+          div.remove('ocultar')
+        } else{
+          div.add('ocultar')
+        }
+        //const act = actualizarTarea(id, input.value);
       })
     })
 

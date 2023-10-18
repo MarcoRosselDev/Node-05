@@ -8,16 +8,20 @@
 
 body{
     background-color: #d9ed9248;
-    height: auto;
-    margin-top: 200px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 main{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    padding-top: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .contenedor{
@@ -54,10 +58,12 @@ main{
 }
 
 input {
-    border: 1px solid rgba(49, 49, 49, 0.119);
+    border: 1px solid rgba(5, 5, 5, 0.581);
     border-radius: 5px;
     width: 100%;
     height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 button{
@@ -77,4 +83,18 @@ button:hover{
 
 .hiden{
     display: none;
+}
+
+.editar-div{
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 20px 0px 20px;
+}
+
+.ocultar{
+    display: none;
+}
+
+.mostrar{
+    display: flex;
 }

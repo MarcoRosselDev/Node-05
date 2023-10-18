@@ -10,8 +10,8 @@ const cargarTareas = async () => {
       },
     })
       .then(data => data.json())
-      .then((event) => {
-        event.forEach((data) => {
+      .then(task => {
+        task.forEach((data) => {
           const name = data.name
           const id = data._id;
           // crear un div y agregarlo al final
@@ -23,6 +23,10 @@ const cargarTareas = async () => {
             <div class="btns">
               <button class="borrar">Borrar</button>
               <button class="editar">Editar</button>
+            </div>
+            <div class="editar-div ocultar">
+              <input type="text" placeholder="..." class="inputEdit">
+              <button class="editarBtn">Enviar edicion</button>
             </div>`
             // class="hiden" --> para ocultar p id despues
           main.append(newDiv)}
