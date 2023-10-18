@@ -11,13 +11,13 @@ const crearTarea = async (data) => {
       body: JSON.stringify(data)
     })
     .then(e => e.json())
-    .then((event) => {
-      console.log(event);
+    .then((data) => {
+      console.log(data);
       const newDiv = document.createElement("div");
       newDiv.classList.add('lista')
       newDiv.innerHTML = `
-        <p>${event.name}</p>
-        <p>${event.id}</p>
+        <p>${data.name}</p>
+        <p>${data.id}</p>
         <div class="btns">
           <button class="borrar">Borrar</button>
           <button class="editar">Editar</button>
