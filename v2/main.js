@@ -1,6 +1,9 @@
 //import actualizarTarea from './actualizarTarea.js';//--> asi es con javascript vanilla
 const editarBtn = document.querySelectorAll('.editar')
 
+const mainElem = document.querySelector("main");
+console.log(mainElem.append());
+
 editarBtn.forEach(btn =>{
   btn.addEventListener('click', function (event) {
     event.preventDefault()
