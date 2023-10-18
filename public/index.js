@@ -1,5 +1,5 @@
 import cargarDatos from './cargarDatos.js';
-import loadBtns from './cargarBotones.js';
+import cargarBotones from './cargarBotones.js';
 import nuevaTarea from './nuevaTarea.js';
 
 const mainElem = document.querySelector("main");
@@ -17,6 +17,7 @@ enviarBtn.addEventListener('click', function (event) {
       div.classList.add("lista");
       div.innerHTML = `
       <p>${data.name}</p>
+      <p class="">${data._id}</p>
       <div class="btns">
         <button class="borrar">Borrar</button>
         <button class="editar">Editar</button>
@@ -32,8 +33,6 @@ enviarBtn.addEventListener('click', function (event) {
   .then(() => loadBtns())
 })
 
-//console.log(mainElem.append());
-
 //primero vamos a cargar los datos de mongoDB
 const loadData = cargarDatos();
 loadData
@@ -45,6 +44,7 @@ loadData
       div.classList.add("lista");
       div.innerHTML = `
       <p>${element.name}</p>
+      <p class="">${element._id}</p>
       <div class="btns">
         <button class="borrar">Borrar</button>
         <button class="editar">Editar</button>
@@ -57,4 +57,6 @@ loadData
     mainElem.append(div);
     });
   })
-  .then(()=> loadBtns())
+  .then(()=> cargarBotones())
+
+//ahora la funcionalidad del boton borrar tarea
