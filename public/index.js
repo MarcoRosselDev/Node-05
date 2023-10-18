@@ -1,5 +1,6 @@
 import cargarDatos from './cargarDatos.js';
 import loadBtns from './cargarBotones.js';
+import nuevaTarea from './nuevaTarea.js';
 
 const mainElem = document.querySelector("main");
 const inputMain = document.querySelector(".input-main");
@@ -7,8 +8,9 @@ const enviarBtn = document.querySelector(".enviar")
 
 enviarBtn.addEventListener('click', function (event) {
   event.preventDefault();
-  console.log(inputMain.value);
+  const promis = nuevaTarea(inputMain.value)
   inputMain.value = '';
+  promis.then(() => loadBtns())
 })
 
 //console.log(mainElem.append());
@@ -18,7 +20,6 @@ const loadData = cargarDatos();
 loadData
   .then(data => data.json())
   .then(array => {
-    console.log(array);
     // cargar datos vajo el main input
     array.forEach(element => {
       const div = document.createElement('div');
