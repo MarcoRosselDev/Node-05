@@ -10,7 +10,26 @@ enviarBtn.addEventListener('click', function (event) {
   event.preventDefault();
   const promis = nuevaTarea(inputMain.value)
   inputMain.value = '';
-  promis.then(() => loadBtns())
+  promis.then(respn => respn.json())
+  .then(data =>{
+    // acceso a data.name y data._id
+    const div = document.createElement('div');
+      div.classList.add("lista");
+      div.innerHTML = `
+      <p>${data.name}</p>
+      <div class="btns">
+        <button class="borrar">Borrar</button>
+        <button class="editar">Editar</button>
+      </div>
+      <div class="editar-div ocultar">
+        <input type="text" placeholder="..." class="inputEdit">
+        <button class="editarBtn">Enviar edicion</button>
+      </div>
+      `;
+    mainElem.append(div);
+    console.log(data)
+  })
+  .then(() => loadBtns())
 })
 
 //console.log(mainElem.append());

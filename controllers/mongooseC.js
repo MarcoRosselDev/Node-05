@@ -5,7 +5,7 @@ const createTask = async (req, res) => {
   try {
     const small = new Task(req.body)
     await small.save();
-    res.status(201).json(req.body);
+    res.status(201).json(small);
   } catch (error) {
     res.status(500).json({ msg: error })
   }
