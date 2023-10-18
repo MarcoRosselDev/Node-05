@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="./main.js" type="module"></script>
+    <script defer src="./index.js" type="module"></script>
     <title>To do list with MongoDB</title>
 </head>
 <body>
@@ -15,14 +15,18 @@
         <!-- structure conv -->
         <div class="contenedor">
             <h1>Lista de tareas</h1>
-            <input type="text">
+            <input type="text" class="input-main">
             <button class="enviar">Enviar</button>
         </div>
-        <!-- <div class="lista">
+        <div class="lista">
             <p>algo por hacer</p>
             <div class="btns">
                 <button class="borrar">Borrar</button>
                 <button class="editar">Editar</button>
+            </div>
+            <div class="editar-div">
+                <input type="text" placeholder="..." class="inputEdit">
+                <button class="editarBtn">Enviar edicion</button>
             </div>
         </div>
         <div class="lista">
@@ -31,7 +35,11 @@
                 <button class="borrar">Borrar</button>
                 <button class="editar">Editar</button>
             </div>
-        </div> -->
+            <div class="editar-div">
+                <input type="text" placeholder="..." class="inputEdit">
+                <button class="editarBtn">Enviar edicion</button>
+            </div>
+        </div>
     </main>
     <footer>
         <!-- structure conv -->

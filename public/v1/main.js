@@ -1,4 +1,3 @@
-import actualizarTarea from './actualizarTarea.js';//--> asi es con javascript vanilla
 import crearTarea from './crearTarea.js';
 import cargarTareas from './cargarTareas.js';
 import borrarId from './borrarTarea.js'
