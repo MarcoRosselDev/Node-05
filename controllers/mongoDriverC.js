@@ -112,11 +112,33 @@ const deleteParams = async (req, res) => {
   }
 }
 
+const putTask = async (req, res) => {
+  try {
+    client.connect();
+    const idParam = req.params.id;
+    const filter = { _id: idParam };
+    const options = { upsert: true };
+    const nameBody = req.body.name;
+    const updateDoc = {
+      $set: {
+        name: nameBody
+      }
+    };
+    const result = await collectionMD.updateOne(filter, updateDoc, options);  
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(404).json({msg: `algun problema`})
+  } finally{
+    await client.close()
+  }
+}
+
 module.exports = {
   createTaskMDdriver,
   getTask,
   getAllMongoDriver,
   deleteOneMongoDriver,
   deleteWithMongoDriver,
-  deleteParams
+  deleteParams,
+  putTask
 };

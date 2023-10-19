@@ -2,7 +2,7 @@ const editarDato = async (id, textUpdate)=>{
     try {
         const bodyP = {name: textUpdate}
         const response = await fetch(`/api/v1/tasks/tester/${id}`, {
-            method: "PATCH",
+            method: "PUT",
             body: JSON.stringify({name: textUpdate})
         })
         return response;
