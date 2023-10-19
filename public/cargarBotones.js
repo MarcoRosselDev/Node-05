@@ -1,3 +1,7 @@
+import borrarBtn from './borrarBtn.js';
+//import cargarDatos from './cargarDatos.js';
+
+
 const cargarBotones = () => {
   //boton borrar
   const borrarBtn = document.querySelectorAll(".borrar");
@@ -6,6 +10,11 @@ const cargarBotones = () => {
     //const id = this.parentElement.parentElement;
     console.log(id);
     event.preventDefault();
+    const del = borrarBtn(id);
+    del .then(resp => resp.json())
+      /* .then(()=>{
+        const div = this.parentElement.parentElement.removeChild();
+      }) */
     console.log('boton borrar');
   }))
   

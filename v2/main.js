@@ -1,7 +1,8 @@
 //import actualizarTarea from './actualizarTarea.js';//--> asi es con javascript vanilla
 const editarBtn = document.querySelectorAll('.editar')
-
+const borrarBtn = document.querySelectorAll('.borrar')
 const mainElem = document.querySelector("main");
+
 console.log(mainElem.append());
 
 editarBtn.forEach(btn =>{
@@ -16,6 +17,15 @@ editarBtn.forEach(btn =>{
     } else{
       div.add('ocultar')
     }
+  })
+})
+
+borrarBtn.forEach(btn => {
+  btn.addEventListener('click', function (event) {
+    event.preventDefault();
+    const div = this.parentElement.parentElement
+    console.log(div);
+    mainElem.removeChild(div);
   })
 })
 

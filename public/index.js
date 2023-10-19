@@ -30,7 +30,7 @@ enviarBtn.addEventListener('click', function (event) {
     mainElem.append(div);
     console.log(data)
   })
-  .then(() => loadBtns())
+  .then(() => cargarBotones())
 })
 
 //primero vamos a cargar los datos de mongoDB
