@@ -1,6 +1,6 @@
-import borrarBtn from './borrarBtn.js';
+import borrarTask from './borrarTask.js';
 //import cargarDatos from './cargarDatos.js';
-
+const mainElement = document.querySelector('main');
 
 const cargarBotones = () => {
   //boton borrar
@@ -10,12 +10,12 @@ const cargarBotones = () => {
     //const id = this.parentElement.parentElement;
     console.log(id);
     event.preventDefault();
-    const del = borrarBtn(id);
+    const del = borrarTask(id);
     del .then(resp => resp.json())
-      /* .then(()=>{
-        const div = this.parentElement.parentElement.removeChild();
-      }) */
-    console.log('boton borrar');
+      .then(()=>{
+        const div = this.parentElement.parentElement;
+        mainElement.removeChild(div);
+      })
   }))
   
   //boton editar

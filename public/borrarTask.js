@@ -1,4 +1,4 @@
-const borrarBtn = async (id) => {
+const borrarTask = async (id) => {
     try {
         const response = await fetch(`/api/v1/tasks/tester/${id}`, {
             method: "DELETE"
@@ -9,4 +9,4 @@ const borrarBtn = async (id) => {
     }
 }
 
-export default borrarBtn;
+export default borrarTask;
