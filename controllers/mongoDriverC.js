@@ -116,9 +116,11 @@ const putTask = async (req, res) => {
   try {
     client.connect();
     const idParam = req.params.id;
+    console.log(idParam);
     const filter = { _id: idParam };
     const options = { upsert: true };
     const nameBody = req.body.name;
+    console.log(nameBody);
     const updateDoc = {
       $set: {
         name: nameBody

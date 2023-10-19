@@ -32,7 +32,7 @@ const cargarBotones = () => {
       event.preventDefault();
       console.log('clickeaste enviar edicion');
       let editValue = editarInput.value;
-      editarDato(id, editValue);
+      editarDato(id, editValue).then(()=>cargarBotones())
       console.log(editValue);
       name.innerText = editarInput.value;
       editarInput.value = '';
