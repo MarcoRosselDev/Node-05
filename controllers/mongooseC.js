@@ -14,9 +14,11 @@ const createTask = async (req, res) => {
 const putTask = async (req, res) => {
   //A.findByIdAndUpdate(id, update, options)  // returns Query ---> example 
   try {
-    const {id:idUpdate} = req.params;
-    console.log(req.params);
-    const doc = await Task.findByIdAndUpdate(idUpdate, req.body, {new:true, runValidators:true});
+    const {id:taskID} = req.params;
+    const doc = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
+      new: true,
+      runValidators: true,
+    })
     // {new:true, runValidators:true} si no se agrega no se actualiza ( bug problem)
     if (!doc) {
       return res.status(404).json({msg: `no se encontro id : ${idUpdate}`});
