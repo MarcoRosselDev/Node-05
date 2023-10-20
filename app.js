@@ -1,37 +1,21 @@
-const express = require("express");
-const connectionDB = require("./db/connect.js");
-require("dotenv").config();
-
+require('dotenv').config();
+const express = require('express');
 const app = express();
-const tasks = require("./routes/tasks.js");
+const puerto = 5000 || process.env.PORT;
 
-app.use(express.static('./public'));
+app.get('/', (req, res)=>{
+    res.status(200).send("<h1>Hola mundo !</h1>")
+})
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+const run = () => {
+    try {
+        //conectar con mongoDB
+        app.listen(puerto, () => {
+            console.log(`Escuchando en el puerto ${puerto}`);
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-app.use(express.static("./public"));
-app.use("/api/v1/tasks", tasks);
-
-app.get("/api", (req, res) => {
-  res.status(200).json({ data: "mundirijillo!" });
-});
-
-/*
-app.get('/api/v1/tasks')-------> api=rutas api (para no confundir con rutars server side como /login o /user)
-app.post('/api/v1/tasks')
-app.get('/api/v1/tasks/:id')
-app.patch('/api/v1/tasks/:id')-----> notece la diferencia con put
-app.delete('/api/v1/tasks/:id')
-*/
-
-const start = async () => {
-  try {
-    await connectionDB(process.env.MONGO_URL);
-    app.listen(5000 , () => console.log("Escuchando en el puerto 5000"));
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
+run()
