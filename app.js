@@ -2,13 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const puerto = 5000 || process.env.PORT;
+const router = require('./router/router.js');
+const connectionDB = require('./db/db.js')
+
+app.use('/api/v1', router);
 
 app.get('/', (req, res)=>{
     res.status(200).send("<h1>Hola mundo !</h1>")
 })
 
-const run = () => {
+const run = async () => {
     try {
+        await connectionDB(process.env.MONGO_URL);
         //conectar con mongoDB
         app.listen(puerto, () => {
             console.log(`Escuchando en el puerto ${puerto}`);
