@@ -7,7 +7,10 @@ const router = require('./router/router.js');
 const connectionDB = require('./db/db.js')
 
 const notFoundMiddleware = require('./middleware/not-found.js');
-const errorMiddleware = require('./middleware/error-handler.js')
+const errorMiddleware = require('./middleware/error-handler.js');
+
+//middleware
+app.use(express.json())
 
 app.use('/api/v1', router);
 
