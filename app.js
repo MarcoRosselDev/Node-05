@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+require('express-async-errors');// puedo usar manejador de errores asyncrono
 const app = express();
 const puerto = 5000 || process.env.PORT;
 const router = require('./router/router.js');
