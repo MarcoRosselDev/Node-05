@@ -14,6 +14,10 @@ const getOne = async (req, res) => {
     const documentos = database.collection("tasks");
     // Execute query
     const documento = await documentos.findOne();
+    //si algo falla podemos usar
+    if (!documento) {
+      throw new Error('Algo salio mal!');
+    }
     res.status(200).json(documento)
   } catch(error) {
     console.error(error);
