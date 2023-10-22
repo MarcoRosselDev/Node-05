@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose'; ---> lanza error, no se puede usar imoprt fuera de los modulos
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
