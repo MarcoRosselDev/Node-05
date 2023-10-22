@@ -11,7 +11,7 @@ const getOne = async (req, res) => {
     
     // Get the database and collection on which to run the operation
     const database = client.db("node-api-05");
-    const documentos = database.collection("tasks");
+    const documentos = database.collection("products");
     // Execute query
     const documento = await documentos.findOne();
     //si algo falla podemos usar
