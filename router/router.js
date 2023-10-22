@@ -1,17 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const {getOne} = require('../controllers/mongoDriver.js')
+const {todosLosDocumentos} = require('../controllers/mongoose.js');
 
 router.route('/').get(getOne)
-
-
-/* // define the home page route
-router.get('/', function(req, res) {
-  res.send('Birds home page');
-});
-// define the about route
-router.get('/about', function(req, res) {
-  res.send('About birds');
-}); */
+router.route('/mdb').get(todosLosDocumentos)
 
 module.exports = router;
