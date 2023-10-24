@@ -11,8 +11,8 @@ const errorMiddleware = require('./middleware/error-handler.js');
 
 app.use(express.urlencoded({ extended: false })); 
 //middleware
-app.use(express.static('./public'))
-app.use('/login', express.static('./login'))
+app.use(express.static('./public'));
+app.use('/login', express.static('./login'));
 app.use(express.json())
 
 app.use('/api/v1', router);
