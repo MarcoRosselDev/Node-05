@@ -9,6 +9,8 @@
   --main-bg-color: #13151c;
   --light-aluminium: #eaecee;
   --dark-aluminium: #2a2e35;
+  --border-main: rgba(255, 255, 255, 0.316);
+  --bg-header:#1e212a; 
 }
 
 body{
@@ -22,8 +24,37 @@ body{
 
 header{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  background-color: var(--bg-header);
   align-items: center;
   height: 5%;
+  width: 100%;
+  border-bottom: 1px solid var(--border-main);
+}
+
+header nav{
   
+}
+
+/* header div{
+  display: flex;
+}
+header nav{
+  display: flex;
+  align-items: end;
+  justify-self: end;
+  justify-items: end;
+  justify-content: end;
+} */
+
+main{
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  height: 5%;
+  border-top: 1px solid var(--border-main);
 }
