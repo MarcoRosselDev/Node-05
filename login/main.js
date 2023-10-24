@@ -2,6 +2,7 @@ const btnDark = document.querySelector('.btnDark');
 const body = document.querySelector('body');
 const header = document.querySelector('header');
 const loginBtn = document.querySelector('.loginBtn');
+const proyectos = document.querySelector('.proyectos');
 
 btnDark.addEventListener('click', function (event) {
     event.preventDefault();
@@ -19,4 +20,3 @@ btnDark.addEventListener('click', function (event) {
 loginBtn.addEventListener('click', ()=>{
     console.log('login bnt');
 })
-

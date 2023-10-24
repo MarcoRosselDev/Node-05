@@ -110,3 +110,7 @@ footer{
 .loginBtn:hover{
   background-color: #13151c;
 }
+
+a:visited{
+  color:var(--light-aluminium);
+}
