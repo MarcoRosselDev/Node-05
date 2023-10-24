@@ -10,6 +10,7 @@
   --light-aluminium: #eaecee;
   --dark-aluminium: #2a2e35;
   --border-main: rgba(255, 255, 255, 0.316);
+  --border-main-light: rgba(145, 145, 145, 0.316);
   --bg-header:#1e212a;
   --btn-color: #635dff;
   --btn-color-over: #7671ff;
@@ -30,6 +31,11 @@ body{
 .ligth{
   color: var(--main-bg-color);
   background-color: var(--main-color);
+  border: solid 1px var(--border-main-light);
+}
+
+.ligth-header{
+  background-color: var(--border-main-light);
 }
 
 header{
@@ -94,4 +100,13 @@ main{
 footer{
   height: 7%;
   border-top: 1px solid var(--border-main);
+}
+
+.loginBtn{
+  background-color: var(--bg-header);
+  border: solid 1px var(--border-main);
+}
+
+.loginBtn:hover{
+  background-color: #13151c;
 }
