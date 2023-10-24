@@ -13,6 +13,9 @@
   --bg-header:#1e212a;
   --btn-color: #635dff;
   --btn-color-over: #7671ff;
+  /* light */
+/*   --main-color-lg: #13151c;
+  --main-bg-color-lg: #dadfe8; */
 }
 
 body{
@@ -22,6 +25,11 @@ body{
   font-family:"Inter", sans-serif;
   height: 100vh;
   width: 100vw;
+}
+
+.ligth{
+  color: var(--main-bg-color);
+  background-color: var(--main-color);
 }
 
 header{
