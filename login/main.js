@@ -19,3 +19,4 @@ btnDark.addEventListener('click', function (event) {
 loginBtn.addEventListener('click', ()=>{
     console.log('login bnt');
 })
+
