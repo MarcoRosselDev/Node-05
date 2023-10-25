@@ -1,7 +1,8 @@
 require('dotenv').config();
 require('express-async-errors');// puedo usar manejador de errores asyncrono|
-const express = require('express');
 const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET; 
+const express = require('express');
 const app = express();
 const puerto = 5000 || process.env.PORT;
 const router = require('./router/router.js');
@@ -13,7 +14,8 @@ const errorMiddleware = require('./middleware/error-handler.js');
 app.use(express.urlencoded({ extended: false })); 
 //middleware
 app.use(express.static('./public'));
-app.use('/login', express.static('./login'));
+app.use('/login', express.static('./crearUsuario/login'));
+app.use('/registrar', express.static('./crearUsuario/registrar'));
 app.use(express.json())
 
 app.use('/api/v1', router);
