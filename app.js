@@ -11,11 +11,11 @@ const connectionDB = require('./db/db.js')
 const notFoundMiddleware = require('./middleware/not-found.js');
 const errorMiddleware = require('./middleware/error-handler.js');
 
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.urlencoded({ extended: false }));
 //middleware
 app.use(express.static('./public'));
-app.use('/login', express.static('./crearUsuario/login'));
-app.use('/registrar', express.static('./crearUsuario/registrar'));
+app.use('/login', express.static('./paginas/login'));
+app.use('/registrar', express.static('./paginas/registrar'));
 app.use(express.json())
 
 app.use('/api/v1', router);
