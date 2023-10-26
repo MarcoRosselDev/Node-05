@@ -8,7 +8,7 @@ const menuBtn = document.querySelector('.burgerMenu');
 
 menuBtn.addEventListener('click', (e)=>{
   e.preventDefault();
-  console.log('menu btn'); 
+  console.log('menu btn');
   console.log('mostrar lista desplegable'); 
 })
 
