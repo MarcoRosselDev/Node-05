@@ -48,7 +48,7 @@ svg{
   fill: var(--main-color);
 }
 
-.hiden {
+.hidden {
   display: none;
 }
 
@@ -56,6 +56,18 @@ svg{
   border-left: solid 1px var(--light-aluminium);
   height: 18px;
 }
+/* nav menu */
+.nav-menu{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 35px;
+  bottom: 0px;
+  background-color: #1e212a;
+}
+
 /* main -------------------------------- */
 main{
   display: flex;

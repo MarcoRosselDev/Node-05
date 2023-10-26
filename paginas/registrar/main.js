@@ -4,12 +4,17 @@ const header = document.querySelector('header');
 const loginBtn = document.querySelector('.loginBtn');
 const proyectos = document.querySelector('.proyectos');
 
-const menuBtn = document.querySelector('.burgerMenu');
+const menuBtn = document.querySelector('.menuHiden');
 
-menuBtn.addEventListener('click', (e)=>{
+menuBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  console.log('menu btn');
-  console.log('mostrar lista desplegable'); 
+  const nav = this.parentElement.parentElement.parentElement.children[1];
+  console.log(nav.classList);
+  if (nav.classList.contains('nav-menu') === true) {
+    nav.classList.remove('nav-menu');
+  } else{
+    nav.classList.add('nav-menu');
+  }
 })
 
 btnDark.addEventListener('click', function (event) {
