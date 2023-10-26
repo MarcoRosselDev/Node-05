@@ -24,6 +24,11 @@ body{
   width: 100vw;
 }
 
+body nav{
+  height: max-content;
+  padding-bottom: 30px;
+}
+
 /* header-------------------------------- */
 header {
   display: flex;
@@ -56,15 +61,47 @@ svg{
   border-left: solid 1px var(--light-aluminium);
   height: 18px;
 }
+
+/* footer for header menu */
+.login-btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height:120px;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--bg-header);
+  border-top: solid 1px var(--border-main-light);
+}
+
+button{
+  border-radius: 5px;
+  width: 80%;
+  height: 30px;
+}
+
+.login-btn{
+  background-color: var(--btn-color);
+}
+
+.login-btn:hover{
+  background-color: var(--btn-color-over);
+}
+
+
 /* nav menu */
 .nav-menu{
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   left: 0px;
   right: 0px;
   top: 35px;
   bottom: 0px;
+  z-index: 200;
   background-color: #1e212a;
 }
 
@@ -89,7 +126,8 @@ main div{
 .form{
   display: flex;
   flex-direction: column;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
   border: 1px solid red;
 }
 
