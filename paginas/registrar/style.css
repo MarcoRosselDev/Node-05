@@ -14,16 +14,53 @@
   --bg-header: #1e212a;
   --btn-color: #635dff;
   --btn-color-over: #7671ff;
-  /* light */
-  /*   --main-color-lg: #13151c;
-    --main-bg-color-lg: #dadfe8; */
 }
 
-body {
+body{
+  font-family: "Inter", sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+}
+
+svg{
+  color: red;
+  padding: 5px;
+}
+
+.amburr{
+  border: solid red 1px;
+}
+
+.hiden {
+  display: none;
+}
+
+.sep {
+  border-left: solid 1px var(--light-aluminium);
+  height: 25px;
+}
+
+@media (max-width: 376px) {
+  /* … */
+}
+
+/* body {
   background-color: black;
   color: var(--main-color);
-  background-color: var(--main-bg-color);
   font-family: "Inter", sans-serif;
+  background-color: var(--main-bg-color);
   height: 100vh;
   width: 100vw;
 }
@@ -80,7 +117,7 @@ header div {
   height: 25px;
 }
 
-/* header div{
+header div{
     display: flex;
   }
   header nav{
@@ -89,7 +126,7 @@ header div {
     justify-self: end;
     justify-items: end;
     justify-content: end;
-  } */
+  }
 
 main {
   display: flex;
@@ -125,4 +162,4 @@ footer {
 
 a:visited {
   color: var(--light-aluminium);
-}
+} */
