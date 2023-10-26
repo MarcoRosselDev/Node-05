@@ -4,10 +4,28 @@ const header = document.querySelector('header');
 const loginBtn = document.querySelector('.loginBtn');
 const proyectos = document.querySelector('.proyectos');
 const registrar = document.querySelector('.registrar');
+// ocultar la clave con css despues
+const claveUsuario = document.querySelector('.claveIpt');
+const nombreUsuario = document.querySelector('.nombreIpt');
 
-registrar.addEventListener('click', function (e) {
+registrar.addEventListener('click', async function (e) {
   e.preventDefault();
-  console.log('enviar registro de nuevo usuario');
+  console.log(nombreUsuario.value);
+  console.log(claveUsuario.value);
+  try {
+    const respuesta = await fetch('http://localhost:5000/api/v1/', {
+      method: 'POST',
+      body: JSON.stringify({nombre: nombreUsuario.value, clave: claveUsuario.value}),
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    .then(data => data.json())
+    .then(a => console.log(a))
+    return respuesta
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 const menuBtn = document.querySelector('.menuHiden');

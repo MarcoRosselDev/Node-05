@@ -33,7 +33,7 @@ const productSchema = new Schema({
 })
 
 const nuevoUsuario = new Schema({
-  name: {
+  nombre: {
     type: String,
     required: [true, 'El nombre es obligatorio.']
   },
