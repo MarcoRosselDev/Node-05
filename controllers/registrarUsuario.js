@@ -8,11 +8,12 @@ const NuevoUsuario = require("../schemas/models.js");
 const createUsuario = async (req, res) => {
   try {
     // req.body ---> name:string, clave:string
+    console.log(req.body);
     const user = new NuevoUsuario(req.body)
     await user.save();
-    res.status(201).json(small);
+    res.status(201).json(user);
   } catch (error) {
-    res.status(500).json({ msg: error })
+    res.status(500).json({ mensajeFromControllers: error })
   }
 };
 

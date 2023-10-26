@@ -43,7 +43,7 @@ const nuevoUsuario = new Schema({
   }
 })
 
-module.exports = mongoose.model('Product', productSchema);
+//module.exports = mongoose.model('Product', productSchema);
 module.exports = mongoose.model('NuevoUsuario', nuevoUsuario);
 
 /* const blogSchema = new Schema({

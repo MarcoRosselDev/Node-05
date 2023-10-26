@@ -8,24 +8,29 @@ const registrar = document.querySelector('.registrar');
 const claveUsuario = document.querySelector('.claveIpt');
 const nombreUsuario = document.querySelector('.nombreIpt');
 
-registrar.addEventListener('click', async function (e) {
-  e.preventDefault();
-  console.log(nombreUsuario.value);
-  console.log(claveUsuario.value);
+const crearUser = async (nombre, clave) => {
   try {
-    const respuesta = await fetch('http://localhost:5000/api/v1/', {
-      method: 'POST',
-      body: JSON.stringify({nombre: nombreUsuario.value, clave: claveUsuario.value}),
-      headers: {
+    const respuesta = await fetch('/api/v1', {
+      method: "POST",
+      headers:{
         "Content-Type": "application/json",
-      }
+      },
+      body: JSON.stringify({nombre: nombre, clave: clave})
     })
-    .then(data => data.json())
-    .then(a => console.log(a))
-    return respuesta
+    return respuesta;
   } catch (error) {
     console.error(error)
   }
+}
+
+registrar.addEventListener('click', async function (e) {
+  e.preventDefault();
+  console.log(nombreUsuario.value);
+  const nombreU = nombreUsuario.value;
+  const claveU = claveUsuario.value;
+  console.log(claveUsuario.value);
+  const fn = crearUser(nombreU, claveU);
+  fn.then(data => data.json()).then(a => console.log(a));
 })
 
 const menuBtn = document.querySelector('.menuHiden');
