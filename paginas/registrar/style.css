@@ -27,20 +27,22 @@ body{
 header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid red;
 }
 .logo{
   display: flex;
   gap: 5px;
-  padding: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.burgerMenu{
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 svg{
-  color: red;
-  padding: 5px;
-}
-
-.amburr{
-  border: solid red 1px;
+  fill: var(--main-color);
 }
 
 .hiden {
@@ -49,7 +51,7 @@ svg{
 
 .sep {
   border-left: solid 1px var(--light-aluminium);
-  height: 25px;
+  height: 18px;
 }
 
 @media (max-width: 376px) {
