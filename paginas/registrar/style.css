@@ -135,7 +135,16 @@ main div{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  gap: 5px;
+}
+
+input{
+  width: 80%;
+}
+
+form button{
+  background-color: #635dff;
+  color: var(--main-color);
 }
 
 /* footer -------------------------------- */

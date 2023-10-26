@@ -32,7 +32,19 @@ const productSchema = new Schema({
   }
 })
 
+const nuevoUsuario = new Schema({
+  name: {
+    type: String,
+    required: [true, 'El nombre es obligatorio.']
+  },
+  clave: {
+    type: String,
+    required: [true, 'La clave es obligatorio.']
+  }
+})
+
 module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('NuevoUsuario', nuevoUsuario);
 
 /* const blogSchema = new Schema({
   title: String, // String is shorthand for {type: String}

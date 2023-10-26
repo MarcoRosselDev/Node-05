@@ -3,6 +3,12 @@ const body = document.querySelector('body');
 const header = document.querySelector('header');
 const loginBtn = document.querySelector('.loginBtn');
 const proyectos = document.querySelector('.proyectos');
+const registrar = document.querySelector('.registrar');
+
+registrar.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('enviar registro de nuevo usuario');
+})
 
 const menuBtn = document.querySelector('.menuHiden');
 
