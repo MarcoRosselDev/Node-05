@@ -94,8 +94,19 @@ header div {
 main {
   display: flex;
   height: 86%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid #dadfe8;
+}
+
+main form{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid #dadfe8;
 }
 
 footer {
