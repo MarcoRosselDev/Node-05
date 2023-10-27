@@ -35,12 +35,26 @@ const productSchema = new Schema({
 const nuevoUsuario = new Schema({
   nombre: {
     type: String,
-    required: [true, 'El nombre es obligatorio.']
+    required: [true, 'El nombre es obligatorio.'],
+    unique: true
   },
   clave: {
     type: String,
     required: [true, 'La clave es obligatorio.']
+  },
+  fecha: {
+    type: Date,
+    default: Date.now()
   }
+/*   _id: {
+    type: mongoose.Types.ObjectId,
+    default: new mongoose.Types.ObjectId()
+  }   */
+  /* 
+  _id: {
+    type: ObjectId, 
+    default: new ObjectId()
+  } */
 })
 
 //module.exports = mongoose.model('Product', productSchema);

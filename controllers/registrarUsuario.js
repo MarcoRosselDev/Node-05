@@ -17,6 +17,8 @@ const createUsuario = async (req, res) => {
   }
 };
 
+// id automatico -->
+// no puede repetirse el nombre
 module.exports = {
   createUsuario
 };
